@@ -48,3 +48,7 @@ body {
 #userlogout a:hover {
     background-color: #263238;
 }
+
+#employee-form {
+    display: none; /* Hide the form initially */
+}

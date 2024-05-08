@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/home.css" />
+  <script src="https://kit.fontawesome.com/f383b6eabf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employees List</title>
+</head>
+
+<body>
+  <nav id="top">
+    <div id="home-n-employee">
+      <h1><a href="/user/homepage">Home</a></h1>
+      <h1><a href="">Employee List</a></h1>
+    </div>
+    <div id="userlogout">
+      <p>Hi <%=user.name %> |</p>
+      <a href="/auth/logout" id="logoutbtn">Log out</a>
+    </div>
+  </nav>
+  
+  <script>
+    <% if(flash.success){ %>
+        new Noty({
+            theme: 'sunset',
+            text: '<%=flash.success %>',
+            type: 'succes',
+            layout: 'bottomLeft',
+            timeout: 2000
+        }).show();
+    <% } %>
+    <% if(flash.error && flash.error.length>0) {%>
+        new Noty({
+            theme: 'sunset',
+            text: '<%= flash.error %>',
+            type: 'error',
+            layout: 'bottomLeft',
+            timeout: 2000
+        }).show();
+
+    <% } %>
+</script>
+</body>
+
+</html>

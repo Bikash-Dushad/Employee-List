@@ -1,5 +1,5 @@
 {
-  "name": "EmployeeList",
+  "name": "employee_list",
   "version": "1.0.0",
   "description": "Add employee details and show in table",
   "main": "app.js",
@@ -16,9 +16,11 @@
     "ejs": "^3.1.9",
     "express": "^4.19.1",
     "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.5.0",
     "express-session": "^1.18.0",
     "mongoose": "^8.2.3",
     "nodemon": "^3.1.0",
+    "path": "^0.12.7",
     "router": "^2.0.0-beta.2"
   }
 }

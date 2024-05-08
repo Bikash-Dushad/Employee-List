@@ -4,6 +4,7 @@ const homecontroller = require('../controllers/homecontroller')
 
 
 router.get('/homepage', homecontroller.homepage);
+router.post('/employeesform',homecontroller.employeesform)
 
 
 

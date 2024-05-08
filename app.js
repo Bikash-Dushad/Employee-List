@@ -7,17 +7,18 @@ const expresssession = require('express-session')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
 const custumMiddleware = require('./config/middlewarre')
+const expressfileupload = require('express-fileupload');
 
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser())
-
+app.use(expressfileupload());
 
 app.use(express.static(__dirname + '/assets'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
 app.use(expresssession({
-    secret: 'xyz', // 
-    
+    secret: 'xyz',
     resave: false,
     saveUninitialized: false
   }));
