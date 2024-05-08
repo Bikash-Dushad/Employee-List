@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/home.css" />
+  <script src="https://kit.fontawesome.com/f383b6eabf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <style>
+    #employee-form {
+        display: none; /* Hide the form initially */
+    }
+</style>
+</head>
+
+<body>
+  <nav id="top">
+    <div id="home-n-employee">
+      <h1><a href="">Home</a></h1>
+      <h1><a href="">Employee List</a></h1>
+    </div>
+    <div id="userlogout">
+      <p>Hi <%=user.name %> |</p>
+      <a href="/auth/logout" id="logoutbtn">Log out</a>
+    </div>
+  </nav>
+
+  <h1>Welcome To Admin Panel</h1>
+  <button id="show-form-btn">Show Form</button>
+
+  <form id="employee-form" action="" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="mobile" required><br><br>
+
+    <label for="designation">Designation:</label>
+    <select id="designation" name="designation">
+        <option value="HR">HR</option>
+        <option value="Manager">Manager</option>
+        <option value="Sales">Sales</option>
+    </select><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="other" name="gender" value="Other">
+    <label for="other">Other</label><br><br>
+
+    <label>Courses:</label><br>
+    <input type="checkbox" id="course1" name="courses" value="MCA">
+    <label for="course1">MCA</label><br>
+    <input type="checkbox" id="course2" name="courses" value="BCA">
+    <label for="course2">BCA</label><br>
+    <input type="checkbox" id="course3" name="courses" value="BSC">
+    <label for="course3">BSC</label><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+  <script src="/js/employeeForm.js">
+    <% if(flash.success){ %>
+        new Noty({
+            theme: 'sunset',
+            text: '<%=flash.success %>',
+            type: 'succes',
+            layout: 'bottomLeft',
+            timeout: 2000
+        }).show();
+    <% } %>
+    <% if(flash.error && flash.error.length>0) {%>
+        new Noty({
+            theme: 'sunset',
+            text: '<%= flash.error %>',
+            type: 'error',
+            layout: 'bottomLeft',
+            timeout: 2000
+        }).show();
+
+    <% } %>
+</script>
+</body>
+
+</html>
