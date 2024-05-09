@@ -5,11 +5,6 @@ const homecontroller = require('../controllers/homecontroller')
 
 router.get('/homepage', homecontroller.homepage);
 router.post('/employeesform',homecontroller.employeesform)
-
-
-
-
-
 // router.post('/addtext', homecontroller.addtext);
 // router.get('/deletetext/:id', homecontroller.deletetext)
 // router.post('/updatetext/:id', homecontroller.updatetext);

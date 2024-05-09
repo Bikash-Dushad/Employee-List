@@ -32,6 +32,7 @@ module.exports.employeesform = async function(req, res) {
     var employee = await Employees.findOne({email: email});
     if(employee){
         console.log("Emp alreaddy exists")
+        return res.redirect('back')
     }else{
     
     if(req.files){
@@ -119,35 +120,3 @@ module.exports.employeesform = async function(req, res) {
 //     }
 // }
 
-// module.exports.deletetext = async function(req, res){
-//    try {
-//      var text = await Text.findById(req.params.id);
-
-//      if(text.user == req.cookies.user_id){
-//         await Text.deleteOne({ _id: text._id });
-//         req.flash('success', "Text deleted successfully")
-//          return res.redirect('back')
-//      }else{
-//         req.flash('error', "You are not authorized to deletee others Text")
-//          console.log("not authorized")
-//          return res.redirect('back')
-//      }
-//    } catch (error) {
-//     console.log(error)
-//    }
-// }
-
-// module.exports.updatetext = async function(req, res){
-//     try {
-//         var user = req.cookies.user_id;
-//         var textId = req.params.id;
-//         var texttoupdate = req.body.texttoupdate;
-
-//         var updatedText = await Text.findByIdAndUpdate(textId, { content: texttoupdate });
-//         req.flash('success', "Text updated successfully")
-//         console.log(updatedText);
-//         return res.redirect('back');
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
