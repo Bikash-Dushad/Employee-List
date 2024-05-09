@@ -25,6 +25,11 @@ body {
   justify-content: space-around;
 }
 
+.navlinkk {
+    text-decoration: none;
+    color: #fff;
+  }
+
 #userlogout {
     display: flex;
     align-items: center;
@@ -49,6 +54,73 @@ body {
     background-color: #263238;
 }
 
+#show-form-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  #show-form-btn:hover {
+    background-color: #0056b3;
+  }
+
 #employee-form {
-    display: none; /* Hide the form initially */
+    display: none;
 }
+#employee-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+
+  label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+
+  input[type="submit"] {
+    width: 90%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }

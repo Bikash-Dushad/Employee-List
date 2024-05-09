@@ -11,13 +11,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Employees List</title>
+  <style>
+
+  </style>
 </head>
 
 <body>
   <nav id="top">
     <div id="home-n-employee">
-      <h1><a href="/user/homepage">Home</a></h1>
-      <h1><a href="">Employee List</a></h1>
+      <h1><a class="navlinkk" href="/user/homepage">Home</a></h1>
+      <h1><a class="navlinkk" href="/employee/employeepage">Employee List</a></h1>
     </div>
     <div id="userlogout">
       <p>Hi <%=user.name %> |</p>
@@ -50,7 +53,44 @@
                   <td><%= employee.gender %></td>
                   <td><%= employee.courses.join(', ') %></td>
                   <td>
-                    <small><a href="/employee/delete/<%= employee.id %>"><i class="fa-solid fa-trash"></i></a></small>        
+                    <a id="delete" href="/employee/delete/<%= employee.id %>"><i class="fa-solid fa-trash"></i></a>
+                    <button class="edit-btn">edit</button>
+                    <form class="employee-update-form" action="/employee/update/<%= employee.id %>" method="POST" enctype="multipart/form-data">
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" name="name" required><br><br>
+                  
+                      <label for="email">Email:</label>
+                      <input type="email" id="email" name="email" required><br><br>
+                  
+                      <label for="mobile">Mobile Number:</label>
+                      <input type="tel" id="mobile" name="mobile" required><br><br>
+                  
+                      <label for="designation">Designation:</label>
+                      <select id="designation" name="designation">
+                          <option value="HR">HR</option>
+                          <option value="Manager">Manager</option>
+                          <option value="Sales">Sales</option>
+                      </select><br><br>
+                  
+                      <label>Gender:</label><br>
+                      <input type="radio" id="male" name="gender" value="Male">
+                      <label for="male">Male</label><br>
+                      <input type="radio" id="female" name="gender" value="Female">
+                      <label for="female">Female</label><br>
+                      <input type="radio" id="other" name="gender" value="Other">
+                      <label for="other">Other</label><br><br>
+                  
+                      <label>Courses:</label><br>
+                      <input type="checkbox" id="course1" name="courses" value="MCA">
+                      <label for="course1">MCA</label><br>
+                      <input type="checkbox" id="course2" name="courses" value="BCA">
+                      <label for="course2">BCA</label><br>
+                      <input type="checkbox" id="course3" name="courses" value="BSC">
+                      <label for="course3">BSC</label><br><br>
+                  
+                      <input type="file" id="file" name="profile" placeholder="Profile picture">
+                      <input type="submit" value="update">
+                  </form>
                   </td>
               </tr>
           <% }); %>
@@ -58,8 +98,14 @@
   </table>
 
   <script>
-        
-    <% if(flash.success){ %>
+    document.querySelectorAll('.edit-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const form = button.nextElementSibling;
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+
+  <% if(flash.success){ %>
         new Noty({
             theme: 'sunset',
             text: '<%=flash.success %>',
@@ -78,7 +124,6 @@
         }).show();
 
     <% } %>
-</script>
+  </script>
 </body>
-
 </html>

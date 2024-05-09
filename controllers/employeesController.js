@@ -1,5 +1,6 @@
 const User = require('../models/user')
 const Employees = require('../models/employee_list')
+
 module.exports.employeePage = async function(req, res){
 try {
         if(req.cookies.user_id){
@@ -36,18 +37,33 @@ module.exports.delete = async function(req, res){
    }
 }
 
-// module.exports.updatetext = async function(req, res){
-//     try {
-//         var user = req.cookies.user_id;
-//         var textId = req.params.id;
-//         var texttoupdate = req.body.texttoupdate;
+module.exports.update = async function(req, res){
+    try {
+        var employee = req.params.id;
+        var name = req.body.name;
+        var email = req.body.email;
+        var mobile = req.body.mobile;
+        var designation = req.body.designation;
+        var gender = req.body.gender;
+        var courses = req.body.courses;
+        var profile = req.files.profile;
+        var profilename = profile.name;
+        var profileLocation = __dirname+"/../assets/uploads/"+ profilename;
 
-//         var updatedText = await Text.findByIdAndUpdate(textId, { content: texttoupdate });
-//         req.flash('success', "Text updated successfully")
-//         console.log(updatedText);
-//         return res.redirect('back');
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+        var updateddetails = await Employees.findByIdAndUpdate(employee, {
+            name: name, 
+            email:email, 
+            mobile:mobile, 
+            designation: designation,
+            gender:gender, 
+            courses: courses, 
+            profile: profileLocation
+        });
+        req.flash('success', "Details updated successfully")
+        console.log(updateddetails);
+        return res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+}
 

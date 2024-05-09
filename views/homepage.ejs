@@ -15,8 +15,8 @@
 <body>
   <nav id="top">
     <div id="home-n-employee">
-      <h1><a href="/user/homepage">Home</a></h1>
-      <h1><a href="/employee/employeepage">Employee List</a></h1>
+      <h1><a class="navlinkk" href="/user/homepage">Home</a></h1>
+      <h1><a class="navlinkk" href="/employee/employeepage">Employee List</a></h1>
     </div>
     <div id="userlogout">
       <p>Hi <%=user.name %> |</p>
@@ -25,7 +25,7 @@
   </nav>
 
   <h1>Welcome To Admin Panel</h1>
-  <button id="show-form-btn">Show Form</button>
+  <button id="show-form-btn">Add Employee</button>
 
   <form id="employee-form" action="/user/employeesform" method="POST" enctype="multipart/form-data">
     <label for="name">Name:</label>
@@ -61,7 +61,7 @@
     <label for="course3">BSC</label><br><br>
 
     <input type="file" id="file" name="profile" placeholder="Profile picture">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Add">
 </form>
   <script src="/js/employeeForm.js">
     <% if(flash.success){ %>

@@ -4,3 +4,4 @@ const employeeForm = document.getElementById('employee-form');
 showFormBtn.addEventListener('click', () => {
     employeeForm.style.display = 'block'; // Show the form
 });
+

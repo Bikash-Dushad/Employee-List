@@ -1,6 +1,5 @@
 body{
     height: 100vh;
-    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +8,7 @@ body{
 
 #signupcontainer{
     height: 65%;
-    width: 50%;
+    width: 30%;
     display: flex;
     box-shadow: 0 4px 8px rgba(11, 6, 6, 0.5);
 }
